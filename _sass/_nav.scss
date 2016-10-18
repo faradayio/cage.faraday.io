@@ -1,0 +1,31 @@
+header.nav {
+  height: 100%;
+  position: fixed;
+  width: $right-sidebar-width;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #ccc;
+  background: #fcfcfc;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid #ccc;
+      background: #fafafa;
+
+      a {
+        padding: 16px;
+        color: #999;
+        text-decoration: none;
+        display: block;
+
+        &.active {
+          color: $teal;
+        }
+      }
+    }
+  }
+}

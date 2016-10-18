@@ -1,0 +1,30 @@
+body {
+  font-family: 'Karla', sans-serif;
+  line-height: 1.6;
+  color: $body;
+  font-size: $main-font-size;
+}
+
+ul {
+  list-style: square;
+}
+
+a {
+  color: $teal;
+}
+
+* { box-sizing: border-box;}
+
+p code {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #eee;
+  padding: 0 4px;
+}
+
+pre.highlight {
+  margin: 0 -32px;
+  padding: 16px 32px;
+  overflow: auto;
+}

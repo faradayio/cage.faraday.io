@@ -1,0 +1,42 @@
+main {
+  clear: both;
+  margin-left: $left-sidebar-width;
+  margin-right: $right-sidebar-width;
+  padding: 32px;
+  max-width: 550px;
+
+  section {
+    margin: 0 0 64px;
+
+    &:after {
+      position: absolute;
+      width: 200px;
+      border-top: 1px solid $teal;
+      height: 1px;
+      content: " ";
+      margin-top: 32px;
+    }
+
+    h2:first-child {
+      font-size: $main-font-size;
+      color: $bittersweet;
+      font-weight: normal;
+    }
+
+    &.intro>h2 {
+      font-weight: normal;
+      color: $magenta;
+      margin: 0;
+      font-size: 22px;
+
+      strong {
+        font-weight: normal;
+        color: $eggplant;
+      }
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

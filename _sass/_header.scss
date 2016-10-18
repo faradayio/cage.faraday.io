@@ -1,0 +1,18 @@
+header.brand {
+  height: 100%;
+  position: fixed;
+  width: $left-sidebar-width;
+  left: 0;
+  top: 0;
+  border-right: 1px solid $gold;
+  background: url(/assets/pattern.svg);
+  background-size: 75%;
+
+  h1 {
+    padding-top: 100px;
+    text-align: center;
+    img {
+      width: 200px;
+    }
+  }
+}
