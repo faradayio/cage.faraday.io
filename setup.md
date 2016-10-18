@@ -137,7 +137,7 @@ $ cage shell web
 You can always check on the status of each of your application's services like so:
 
 ``` shell
-$ cage source list
+$ cage source ls
 rails_hello               https://github.com/faradayio/rails_hello.git
   Cloned at src/rails_hello (mounted)
 ```
