@@ -11,16 +11,6 @@ body_id: setup
 </section>
 
 <section>
-## Evaluate your application
-
-The first step is to make sure your application is appropriate for Cage. Does it meet the following criteria?
-
-* Multiple Dockerized services
-* ...
-
-</section>
-
-<section>
 ## Installing Cage
 
 If you've never used Cage before, you'll need to install it on your development machine.
