@@ -156,3 +156,5 @@ rails_hello               https://github.com/faradayio/rails_hello.git
 * You'll also likely want a `pods/common.env` that defines environment variables for your application.
 
 </section>
+
+Next: [On GitHub](https://github.com/faradayio/cage)
