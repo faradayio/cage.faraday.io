@@ -15,4 +15,32 @@ header.brand {
       width: 200px;
     }
   }
+
+  @media screen and (max-width: 1000px) and (min-width: 801px) {
+    width: $right-sidebar-width;
+
+    img {
+      max-width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: auto;
+    position: static;
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid $gold;
+    background-size: 300px;
+    margin-right: $right-sidebar-width;
+
+    h1 {
+      padding-top: 32px;
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 0;
+  }
 }
+

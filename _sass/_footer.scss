@@ -4,4 +4,26 @@ body>footer {
   bottom: 50px;
   left: 0;
   text-align: center;
+
+  span {
+    display: none;
+  }
+
+  @media screen and (max-width: 1000px) and (min-width: 801px) {
+    width: $right-sidebar-width;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    background: #fcfcfc;
+    border-top: 1px solid #eee;
+    bottom: 0;
+    padding: 8px;
+  }
+
+  @media screen and (max-width: 600px) {
+    span {
+      display: inline;
+    }
+  }
 }

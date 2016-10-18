@@ -34,4 +34,30 @@ header.nav {
       }
     }
   }
+
+  @media screen and (max-width: 600px) {
+    height: auto;
+    position: static;
+    width: auto;
+    border: none;
+
+    ul {
+      border-bottom: 1px solid #ccc;
+      padding: 0 32px;
+
+      li {
+        display: inline-block;
+        background: 0;
+        border: none;
+
+        &.github {
+          display: none;
+        }
+
+        a {
+          padding: 16px 8px 16px 0;
+        }
+      }
+    }
+  }
 }

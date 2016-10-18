@@ -5,6 +5,20 @@ main {
   padding: 32px;
   max-width: 550px;
 
+  @media screen and (max-width: 1000px) and (min-width: 801px) {
+    margin-left: $right-sidebar-width;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-left: 0;
+    padding-bottom: 64px;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-right: 0;
+  }
+
+
   section {
     margin: 0 0 64px;
 
