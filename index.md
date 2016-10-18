@@ -13,7 +13,7 @@ body_id: home
 <section>
 ## What is Cage?
 
-Cage defines a standardized format for you to describe your application structure, then brings the whole application up on your laptop for local development. You can mix pre-built Docker images with local source trees, "checking out" individual services for code changes and testing.
+The Cage open-source project defines a standardized format for you to describe your application structure, then brings the whole application up on your laptop for local development. You can mix pre-built Docker images with local source trees, "checking out" individual services for code changes and testing.
 
 </section>
 
