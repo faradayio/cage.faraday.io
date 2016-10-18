@@ -16,13 +16,13 @@ body_id: basics
 Much like the "Rails way" defined a convention for structuring a standalone web application, Cage offers a uniform format for describing a broad class of multi-service Docker applications.
 
 ```
-myproject/          
+myproject/
 ├── config
-│   └── project.yml 
+│   └── project.yml
 └── pods
-    ├── common.env  
+    ├── common.env
     ├── frontend.yml
-    └── overrides   
+    └── targets
         └── test
             └── common.env
 ```
@@ -35,7 +35,7 @@ myproject/
 
 * The `pods/common.env` file specifies environment variables that are made available to all services in any pod. Each pod can also have its own `pods/podname.yml` file for pod-specific environment variables.
 
-* Finally, the `overrides/` dir contains a subdir for each target that requires special overrides, either to the pod definition or environment variables.
+* Finally, the `targets/` dir contains a subdir for each target that requires special overrides, either to the pod definition or environment variables.
 </section>
 
 <section>
@@ -49,7 +49,7 @@ Cage draws its terminology from the container ecosystem, including Docker and Ku
 
 * A **source** is where a service's code is found—this could be a pre-built container image or a local source tree.
 
-* A **target** is also known as an "environment," although we avoid that term to reduce confusion with *environment variables*, which Cage actively manages. Common targets include `development` (your laptop), `test` (automated builds on CI services), and `production`.
+* A **target** is also known as an "environment," although we avoid that term to reduce confusion with *environment variables*, which Cage actively manages. Common targets include `development` (your laptop), `test` (for running test suites), and `production`.
 
 * A **pod** is a tightly-linked group of containers that are always deployed together. Kubernetes offers a [more complete definition](http://kubernetes.io/docs/user-guide/pods/). If you're using Amazon's ECS, a pod corresponds to an ECS "task" or "service". If you're using Docker Swarm, a pod corresponds to a single docker-compose.xml file full of services that you always launch as a single unit.
 

@@ -26,11 +26,23 @@ Define your application structure and environment variables in a new Cage repo:
 $ cage new myproject
 $ tree myproject
 myproject/
-├── config
-│   └── project.yml
+├── ...
 └── pods
     ├── common.env
+    ├── frontend.yml
     └── ...
+```
+
+Define how your application works in `frontend.yml`:
+
+``` yaml
+version: "2"
+services:
+  rails_hello:
+    image: "faraday/rails_hello"
+    build: "https://github.com/faradayio/rails_hello.git"
+    ports:
+    - "3000:3000"
 ```
 
 Bring up the whole stack with a single command:
@@ -42,11 +54,12 @@ $ cage up
 Check out a single service for local development and testing:
 
 ``` shell
-$ cage mount frontend
-$ $EDITOR src/frontend
-$ cage test frontend
-# commit and push changes, then . . .
-$ cage unmount frontend
+$ cage source clone rails_hello
+# Restart the app using the cloned source code.
+$ cage up
+$ $EDITOR src/rails_hello
+$ cage test rails_hello
+# Commit and push changes.
 ```
 
 Voilà!

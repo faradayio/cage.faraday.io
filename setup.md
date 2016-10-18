@@ -15,7 +15,7 @@ body_id: setup
 
 The first step is to make sure your application is appropriate for Cage. Does it meet the following criteria?
 
-* Multiple Dockerized services, each with their own repo on GitHub
+* Multiple Dockerized services
 * ...
 
 </section>
@@ -62,7 +62,7 @@ $ tree
     ├── frontend.yml
     ├── migrate.metadata.yml
     ├── migrate.yml
-    └── overrides
+    └── targets
         ├── development
         │   └── common.env
         ├── production
@@ -106,8 +106,8 @@ $ open http://localhost:3000
 What if we want to make changes to one of the application's services, while using pre-built Docker images for everything else? We use the `cage mount` command to "check out" the service's source locally.
 
 ``` shell
-$ cage mount web
-$ $EDITOR src/web
+$ cage clone rails_hello
+$ $EDITOR src/rails_hello
 ```
 
 After we've made some changes, we'll want to run tests:
@@ -137,9 +137,9 @@ $ cage shell web
 You can always check on the status of each of your application's services like so:
 
 ``` shell
-$ cage repo list
+$ cage source ls
 rails_hello               https://github.com/faradayio/rails_hello.git
-  Cloned at src/rails_hello
+  Cloned at src/rails_hello (mounted)
 ```
 </section>
 
