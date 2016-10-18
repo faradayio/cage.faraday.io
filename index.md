@@ -54,7 +54,7 @@ $ cage up
 Check out a single service for local development and testing:
 
 ``` shell
-$ cage source clone rails_hello
+$ cage source mount rails_hello
 # Restart the app using the cloned source code.
 $ cage up
 $ $EDITOR src/rails_hello

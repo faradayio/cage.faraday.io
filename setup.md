@@ -50,7 +50,6 @@ The `cage new` command lets you "stub out" a skeleton Cage application:
 $ cd ~/code
 $ cage new myproject
 $ cd myproject/
-$ git init
 $ tree
 .
 ├── config
@@ -100,13 +99,27 @@ Let's bring up our multi-service application!
 
 ``` shell
 $ cage up
+```
+
+This won't work quite yet, because we don't have a database.  But we can
+just run a `rake` command inside our `web` service to create it:
+
+``` shell
+cage exec web rake db:create
+```
+
+Now we can look at our web app!
+
+```
 $ open http://localhost:3000
 ```
 
 What if we want to make changes to one of the application's services, while using pre-built Docker images for everything else? We use the `cage mount` command to "check out" the service's source locally.
 
 ``` shell
-$ cage clone rails_hello
+$ cage source mount rails_hello
+# Restart our Rails app using local source code.
+$ cage up
 $ $EDITOR src/rails_hello
 ```
 
@@ -114,12 +127,6 @@ After we've made some changes, we'll want to run tests:
 
 ``` shell
 $ cage test web
-```
-
-We may have to run some one-time tasks as well:
-
-``` shell
-$ cage exec web rake db:create
 ```
 
 Some one-time tasks are important enough to have a task pod defined, such as `migrate` in the example application:
@@ -134,7 +141,8 @@ And there are always times when you just need to shell into the service:
 $ cage shell web
 ```
 
-You can always check on the status of each of your application's services like so:
+You can always check to see what source trees are available, and which are
+currently mounted into services:
 
 ``` shell
 $ cage source ls
@@ -151,5 +159,3 @@ rails_hello               https://github.com/faradayio/rails_hello.git
 * You'll also likely want a `pods/common.env` that defines environment variables for your application.
 
 </section>
-
-Next: [Setup](/setup)
