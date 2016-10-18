@@ -26,6 +26,12 @@ header.nav {
           color: $teal;
         }
       }
+
+      &.github {
+        a {
+          color: $bittersweet;
+        }
+      }
     }
   }
 }
