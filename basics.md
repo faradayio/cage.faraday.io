@@ -49,7 +49,7 @@ Cage draws its terminology from the container ecosystem, including Docker and Ku
 
 * A **source** is where a service's code is found—this could be a pre-built container image or a local source tree.
 
-* A **target** is also known as an "environment," although we avoid that term to reduce confusion with *environment variables*, which Cage actively manages. Common targets include `development` (your laptop), `test` (automated builds on CI services), and `production`.
+* A **target** is also known as an "environment," although we avoid that term to reduce confusion with *environment variables*, which Cage actively manages. Common targets include `development` (your laptop), `test` (for running test suites), and `production`.
 
 * A **pod** is a tightly-linked group of containers that are always deployed together. Kubernetes offers a [more complete definition](http://kubernetes.io/docs/user-guide/pods/). If you're using Amazon's ECS, a pod corresponds to an ECS "task" or "service". If you're using Docker Swarm, a pod corresponds to a single docker-compose.xml file full of services that you always launch as a single unit.
 
