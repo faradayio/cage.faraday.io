@@ -16,13 +16,13 @@ body_id: basics
 Much like the "Rails way" defined a convention for structuring a standalone web application, Cage offers a uniform format for describing a broad class of multi-service Docker applications.
 
 ```
-myproject/          
+myproject/
 ├── config
-│   └── project.yml 
+│   └── project.yml
 └── pods
-    ├── common.env  
+    ├── common.env
     ├── frontend.yml
-    └── overrides   
+    └── targets
         └── test
             └── common.env
 ```
@@ -35,7 +35,7 @@ myproject/
 
 * The `pods/common.env` file specifies environment variables that are made available to all services in any pod. Each pod can also have its own `pods/podname.yml` file for pod-specific environment variables.
 
-* Finally, the `overrides/` dir contains a subdir for each target that requires special overrides, either to the pod definition or environment variables.
+* Finally, the `targets/` dir contains a subdir for each target that requires special overrides, either to the pod definition or environment variables.
 </section>
 
 <section>
