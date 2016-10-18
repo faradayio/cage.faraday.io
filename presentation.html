@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cage Presentation</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      /* copied from https://remarkjs.com/ */
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content.inverse h2 { font-size: 3.5em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      .large li, .large p { font-size: 1.75em; line-height: 1.25em; margin-bottom: 0.25em; }
+      .red { color: #fa0000; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code { font-size: 1.5em; }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle
+
+# ![Cage](http://cage.faraday.io/assets/cage-logo.svg)
+
+**Develop complex, multi‑container Docker applications locally**
+
+An open source Rust tool brought to you by Faraday, Inc.
+---
+class: large
+
+.left-column[
+  ## Who are we?
+]
+
+.right-column[
+
+<img title="Faraday"
+     src="https://s3.amazonaws.com/faraday-assets/files/img/logo.svg"
+     width="450px"
+     height="131px">
+
+- Finding customers for products that involve "dinner table decisions".
+- We help our clients sell solar panels (and lots of other things).
+- Maps, data, and predictions.
+
+]
+
+---
+class: center, middle, inverse, large
+
+## We have lots of microservices!
+
+---
+class: center, middle, inverse, large
+
+## Try #1: docker-compose
+---
+class: large
+
+## Try #1: `docker-compose`
+
+.left-column[
+## We liked
+]
+
+.right-column[
+- Standard file format.
+]
+---
+class: large
+
+## Try #1: `docker-compose`
+
+.left-column[
+## Limitations
+]
+
+.right-column[
+- Clunky with over 20 services.
+- Multiple `docker-compose.yml` files.
+- Working with source code for lots of services is cubmersome.
+]
+---
+class: center, middle, inverse, large
+
+## Try #2: Ruby cage
+---
+class: large
+
+## Try #2: Ruby `cage`
+
+.left-column[
+## What's new
+]
+
+.right-column[
+- One `docker-compose.yml` for each group of services that start together.
+- Run mostly pre-built images, but we can clone a service's source code and
+  mount it into containers.
+
+@dkastner is our hero.
+]
+
+---
+class: large
+
+## Try #2: Ruby `cage`
+
+.left-column[
+## Limitations
+]
+
+.right-column[
+- Project-specific.
+- Requires a full Ruby install.
+- Hard to stay in sync with `docker-compose.yml` changes.
+- We learned a lot.
+]
+---
+class: center, middle, inverse, large
+
+## Try #3: Rust!
+---
+class: large
+
+## Try #3: Rust `cage`
+
+.left-column[
+## What's new
+]
+
+.right-column[
+- Rigorous, typesafe `docker-compose.yml` processing with `compose_yml`.
+- Project indepedent!
+- A fast static binary with no dependencies.
+]
+---
+class: large
+
+## Make a project
+
+```sh
+cage new myproject
+cd myproject
+```
+
+---
+class: large
+
+## Directory structure
+
+```
+myproject
+├── config
+│   └── project.yml
+└── pods
+    ├── common.env
+    ├── db.metadata.yml
+    ├── db.yml
+    ├── frontend.yml
+    ├── migrate.metadata.yml
+    ├── migrate.yml
+    └── targets
+        ├── development
+        │   └── common.env
+        ├── ...
+```
+
+---
+class: large
+
+## Start it up
+
+```sh
+cage pull
+cage up
+cage exec web rake db:create
+```
+---
+class: large
+
+## Clone & mount source
+
+```sh
+cage source mount rails_hello
+cage up
+```
+
+Edit your Rails source code in `src/rails_hello` normally!
+---
+class: large
+
+## Other fun things
+
+```sh
+cage test web
+cage shell web
+cage run migrate
+```
+---
+class: large
+
+.left-column[
+## What we like about Rust
+]
+
+.right-column[
+- Fearless refactoring
+- Crystal-clear types
+- **Fast**
+- Static musl-libc binaries are great in a containerized world
+- Multiple team members contributing!
+]
+
+---
+class: large
+
+.left-column[
+  ## Get cage
+]
+
+.right-column[
+- GitHub: [faradayio/cage](https://github.com/faradayio/cage)
+- Website: [http://cage.faraday.io](http://cage.faraday.io/)
+]
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
