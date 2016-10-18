@@ -37,6 +37,13 @@ $ unzip cage-*.zip
 $ sudo cp cage /usr/local/bin/
 $ rm cage-*.zip cage
 ```
+
+If you have [Rust](https://www.rust-lang.org/) installed, you can also
+install it using `cargo`:
+
+``` shell
+$ cargo install cage
+```
 </section>
 
 <section>
