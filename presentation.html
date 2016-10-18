@@ -297,6 +297,17 @@ cage test web
 cage shell web
 cage run migrate
 ```
+--
+
+```yml
+services:
+  web:
+    # ...
+    labels:
+      io.fdy.cage.test: "bundle exec rake"
+      io.fdy.cage.shell: "bash"
+      io.fdy.cage.srcdir: "/usr/src/app"
+```
 ---
 class: large
 
@@ -320,7 +331,18 @@ class: large
 - Fearless refactoring
 - Crystal-clear types
 - **Fast**
-- Static musl-libc binaries are great in a containerized world
+]
+
+---
+class: large
+
+.left-column[
+## What we like about Rust (cont)
+]
+
+.right-column[
+- Cargo and crates.io
+- Static musl-libc binaries
 - Multiple team members contributing!
 ]
 
