@@ -257,10 +257,8 @@ myproject
 │   └── project.yml
 └── pods
     ├── common.env
-    ├── db.metadata.yml
     ├── db.yml
     ├── frontend.yml
-    ├── migrate.metadata.yml
     ├── migrate.yml
     └── targets
         ├── development
@@ -299,6 +297,18 @@ cage test web
 cage shell web
 cage run migrate
 ```
+---
+class: large
+
+.left-column[
+## Secrets
+]
+
+.right-column[
+- Store in `config/secrets.yml`
+- Or use Hashicorp's vault
+]
+
 ---
 class: large
 
