@@ -8,6 +8,8 @@ body_id: home
 
 <section class="intro">
 ## **Cage** helps you develop complex, multi‑container Docker applications locally
+
+v0.1.1 — developer preview
 </section>
 
 <section>

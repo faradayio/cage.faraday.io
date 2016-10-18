@@ -23,15 +23,23 @@ main {
       font-weight: normal;
     }
 
-    &.intro>h2 {
-      font-weight: normal;
-      color: $magenta;
-      margin: 0;
-      font-size: 22px;
-
-      strong {
+    &.intro {
+      &>h2 {
         font-weight: normal;
-        color: $eggplant;
+        color: $magenta;
+        margin: 0;
+        font-size: 22px;
+
+        strong {
+          font-weight: normal;
+          color: $eggplant;
+        }
+      }
+
+      &>p {
+        color: #666;
+        font-size: 14px;
+        text-transform: uppercase;
       }
     }
 
