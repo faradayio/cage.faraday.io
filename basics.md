@@ -39,6 +39,18 @@ myproject/
 </section>
 
 <section>
+## How does `cage` relate to `docker-compose`?
+
+`docker-compose` is the standard tool for working with multiple Docker
+containers.  `cage` acts as a wrapper around `docker-compose`, and adds:
+
+* A set of conventions and tools for working with large, complex projects.
+* Support for multiple `docker-compose.yml` files for services and tasks.
+* Management of source repositories for individual services, and mounting
+  source code into containers for development.
+</section>
+
+<section>
 ## Key terms
 
 Cage draws its terminology from the container ecosystem, including Docker and Kubernetes.
