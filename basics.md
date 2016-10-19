@@ -42,12 +42,22 @@ myproject/
 ## How does `cage` relate to `docker-compose`?
 
 `docker-compose` is the standard tool for working with multiple Docker
-containers.  `cage` acts as a wrapper around `docker-compose`, and adds:
+containers.  `cage` acts as a wrapper around `docker-compose`.
 
-* A set of conventions and tools for working with large, complex projects.
-* Support for multiple `docker-compose.yml` files for services and tasks.
-* Management of source repositories for individual services, and mounting
-  source code into containers for development.
+* `docker-compose` will generally require multiple `docker-compose.yml`
+  files for larger projects, but it offers no conventions for organizing
+  them.  `cage` provides conventions and tools to make this workflow easier.
+* `docker-compose` provides limited support for working with the source
+  code for existing images.  `cage` makes this simple, allowing you to
+  clone the git repository for a service and mount the source code into
+  a pre-built image for easy editing.
+* `cage` provides support for secret-handling, either via a centralized
+  text file or Hashicorp's [Vault][].
+
+Essentially, `cage` makes it easy to use `docker-compose` with large,
+complex projects.
+
+[Vault]: https://www.vaultproject.io/
 </section>
 
 <section>
