@@ -259,7 +259,7 @@ myproject
     ├── common.env
     ├── db.yml
     ├── frontend.yml
-    ├── migrate.yml
+    ├── rake.yml
     └── targets
         ├── development
         │   └── common.env
@@ -273,8 +273,10 @@ class: large
 
 ```sh
 cage pull
+cage up db
+cage run rake db:create
+cage run rake db:migrate
 cage up
-cage exec web rake db:create
 ```
 ---
 class: large
@@ -295,7 +297,6 @@ class: large
 ```sh
 cage test web
 cage shell web
-cage run migrate
 ```
 --
 
