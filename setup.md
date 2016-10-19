@@ -73,7 +73,7 @@ The `cage new` command starts us off with a few pods that serve as examples.
 
 * `db` is a straightforward database pod that includes a single Postgres service. `db.yml` describes the pod and its Postgres service. The associated `db.metadata.yml` indicates that this pod should only be started in the development target.
 
-* `migrate` is a "task pod" — its `migrate.yml` file actually references the same image as `frontend`, but with a `command` key that executes a task defined in that container. The associated `migrate.metadata.yml` declares this "task" purpose.
+* `rake` is a "task pod" — its `rake.yml` file actually references the same image as `frontend`, but with a `entrypoint` key that makes it easy to run rake tasks in the container. The associated `rake.metadata.yml` declares this "task" purpose.
 
 </section>
 
@@ -92,17 +92,18 @@ First, let's pull any associated Docker images listed in your Cage config:
 $ cage pull
 ```
 
-Let's bring up our multi-service application!
+Let's start by bringing up our local database server and initializing our database:
+
+``` shell
+$ cage up db
+$ cage run rake db:create
+$ cage run rake db:migrate
+```
+
+Now let's bring up the rest of our multi-service application!
 
 ``` shell
 $ cage up
-```
-
-This won't work quite yet, because we don't have a database.  But we can
-just run a `rake` command inside our `web` service to create it:
-
-``` shell
-cage exec web rake db:create
 ```
 
 Now we can look at our web app!
@@ -126,10 +127,10 @@ After we've made some changes, we'll want to run tests:
 $ cage test web
 ```
 
-Some one-time tasks are important enough to have a task pod defined, such as `migrate` in the example application:
+Some one-time tasks are important enough to have a task pod defined, such as `rake` in the example application:
 
 ``` shell
-$ cage run migrate
+$ cage run rake -T
 ```
 
 And there are always times when you just need to shell into the service:
