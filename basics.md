@@ -51,6 +51,8 @@ containers.  `cage` acts as a wrapper around `docker-compose`.
   code for existing images.  `cage` makes this simple, allowing you to
   clone the git repository for a service and mount the source code into
   a pre-built image for easy editing.
+* `cage` gives you a "birds-eye view" of all your microservices to make 
+  it easier to write end-to-end integration and acceptance tests.
 * `cage` provides support for secret-handling, either via a centralized
   text file or Hashicorp's [Vault][].
 
