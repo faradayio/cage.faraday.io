@@ -45,6 +45,8 @@ services:
     build: "https://github.com/faradayio/rails_hello.git"
     ports:
     - "3000:3000"
+    labels:
+      io.fdy.cage.test: "rake test"
 ```
 
 Bring up the whole stack with a single command:
